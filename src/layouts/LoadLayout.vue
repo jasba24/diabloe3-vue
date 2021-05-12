@@ -1,11 +1,11 @@
 <template>
-	<div class="loading-layout">
-		<slot></slot>
-	</div>
+  <div class="loading-layout">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
 export default {
-	name: "LoadLayout",
-}
+  name: "LoadLayout",
+};
 </script>
