@@ -1,59 +1,61 @@
 <template>
-	<div class="hero-portrait-wrapper mb-5 mb-sm-0">
-		<div class="bg-secondary d-flex justify-content-center p-3 p-sm-0">
-			<div :class="heroClass"></div>
-		</div>
-		<div class="p-2 bg-dark">
-			<h5
-				class="text-truncate m-0 text-center title-name font-diablo"
-				:class="{ 'bg-danger': hero.hardcore }"
-			>
-				{{ hero.name }}
-				<img
-					v-if="hero.seasonal"
-					src="@/assets/img/leaf.png"
-					alt=""
-					width="12px"
-				/>
-			</h5>
-			<div
-				class="d-flex justify-content-between border-top border-secondary pt-2 align-items-center mt-2"
-			>
-				<small class="elite-kills">
-					<span class="text-monospace">{{ hero.kills.elites | formatNumber }}</span>
-					Elite Kills
-				</small>
-				<small class="level-cirle" :class="{ 'text-danger': hero.dead }">{{
-					hero.level
-				}}</small>
-			</div>
-		</div>
-	</div>
+  <div class="hero-portrait-wrapper mb-5 mb-sm-0">
+    <div class="bg-secondary d-flex justify-content-center p-3 p-sm-0">
+      <div :class="heroClass"></div>
+    </div>
+    <div class="p-2 bg-dark">
+      <h5
+        class="text-truncate m-0 text-center title-name font-diablo"
+        :class="{ 'bg-danger': hero.hardcore }"
+      >
+        {{ hero.name }}
+        <img
+          v-if="hero.seasonal"
+          src="@/assets/img/leaf.png"
+          alt=""
+          width="12px"
+        />
+      </h5>
+      <div
+        class="d-flex justify-content-between border-top border-secondary pt-2 align-items-center mt-2"
+      >
+        <small class="elite-kills">
+          <span class="text-monospace">{{
+            hero.kills.elites | formatNumber
+          }}</span>
+          Elite Kills
+        </small>
+        <small class="level-cirle" :class="{ 'text-danger': hero.dead }">{{
+          hero.level
+        }}</small>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import { formatNumber } from "@/filters/numeral"
+import { formatNumber } from "@/filters/numeral";
 
 export default {
-	name: "TopHero",
-	props: {
-		hero: {
-			type: Object,
-			required: true,
-		},
-	},
+  name: "TopHero",
+  props: {
+    hero: {
+      type: Object,
+      required: true,
+    },
+  },
 
-	filters: {
-		formatNumber,
-	},
+  filters: {
+    formatNumber,
+  },
 
-	computed: {
-		heroClass() {
-			const gender = this.hero.gender === 0 ? "male" : "female"
-			return `hero-${this.hero.classSlug} ${gender}`
-		},
-	},
-}
+  computed: {
+    heroClass() {
+      const gender = this.hero.gender === 0 ? "male" : "female";
+      return `hero-${this.hero.classSlug} ${gender}`;
+    },
+  },
+};
 </script>
 
 <style lang="stylus">

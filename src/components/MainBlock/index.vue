@@ -1,50 +1,53 @@
 <template>
-	<div class="grid-container">
-		<div class="grid-item item-left">
-			<top-heroes v-if="hasHeroes" :heroes="topHeroes" />
+  <div class="grid-container">
+    <div class="grid-item item-left">
+      <top-heroes v-if="hasHeroes" :heroes="topHeroes" />
 
-			<heroes-list v-if="hasHeroesList" :heroes="heroesList" />
-		</div>
-		<div class="grid-item item-right">
-			<h1>Derecha</h1>
-		</div>
-	</div>
+      <heroes-list v-if="hasHeroesList" :heroes="heroesList" />
+
+      <progress-list :acts="profileData.progression" />
+    </div>
+    <div class="grid-item item-right">
+      <h1>Derecha</h1>
+    </div>
+  </div>
 </template>
 
 <script>
-import TopHeroes from "./TopHeroes"
-import HeroesList from "./HeroesList"
+import TopHeroes from "./TopHeroes";
+import HeroesList from "./HeroesList";
+import ProgressList from "./ProgressList";
 
 export default {
-	name: "MainBlock",
+  name: "MainBlock",
 
-	components: { TopHeroes, HeroesList },
+  components: { TopHeroes, HeroesList, ProgressList },
 
-	props: {
-		profileData: {
-			type: Object,
-			required: true,
-		},
-	},
+  props: {
+    profileData: {
+      type: Object,
+      required: true,
+    },
+  },
 
-	computed: {
-		hasHeroes() {
-			return this.profileData.heroes.length > 0
-		},
+  computed: {
+    hasHeroes() {
+      return this.profileData.heroes.length > 0;
+    },
 
-		topHeroes() {
-			return this.profileData.heroes.slice(0, 3)
-		},
+    topHeroes() {
+      return this.profileData.heroes.slice(0, 3);
+    },
 
-		hasHeroesList() {
-			return this.profileData.heroes.length > 3
-		},
+    hasHeroesList() {
+      return this.profileData.heroes.length > 3;
+    },
 
-		heroesList() {
-			return this.profileData.heroes.slice(3, this.profileData.heroes.length)
-		},
-	},
-}
+    heroesList() {
+      return this.profileData.heroes.slice(3, this.profileData.heroes.length);
+    },
+  },
+};
 </script>
 
 <style lang="stylus">

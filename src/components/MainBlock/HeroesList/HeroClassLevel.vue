@@ -1,24 +1,24 @@
 <template>
-	<div class="hero-name-level">
-		<span>{{ classToName(hero.classSlug) }}</span>
-		<span>.</span>
-		<span class="text-monospace font-weight-bold">{{ hero.level }}</span>
-	</div>
+  <div class="hero-name-level">
+    <span>{{ classToName(hero.classSlug) }}</span>
+    <span>.</span>
+    <span class="text-monospace font-weight-bold">{{ hero.level }}</span>
+  </div>
 </template>
 
 <script>
-import heroName from "@/mixins/heroName"
+import heroName from "@/mixins/heroName";
 
 export default {
-	name: "HeroNameLevel",
+  name: "HeroNameLevel",
 
-	mixins: [heroName],
+  mixins: [heroName],
 
-	props: {
-		hero: {
-			required: true,
-			type: Object,
-		},
-	},
-}
+  props: {
+    hero: {
+      required: true,
+      type: Object,
+    },
+  },
+};
 </script>
