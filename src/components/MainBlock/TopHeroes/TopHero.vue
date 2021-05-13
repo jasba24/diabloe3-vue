@@ -20,7 +20,7 @@
 				class="d-flex justify-content-between border-top border-secondary pt-2 align-items-center mt-2"
 			>
 				<small class="elite-kills">
-					<span class="text-monospace">{{ hero.kills.elites }}</span>
+					<span class="text-monospace">{{ hero.kills.elites | formatNumber }}</span>
 					Elite Kills
 				</small>
 				<small class="level-cirle" :class="{ 'text-danger': hero.dead }">{{
@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import { formatNumber } from "@/filters/numeral"
+
 export default {
 	name: "TopHero",
 	props: {
@@ -39,6 +41,10 @@ export default {
 			type: Object,
 			required: true,
 		},
+	},
+
+	filters: {
+		formatNumber,
 	},
 
 	computed: {
