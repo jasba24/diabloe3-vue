@@ -1,38 +1,39 @@
 <template>
-  <div class="progress-time-played">
-    <div class="d-flex justify-content-between">
-      <h5 class="mb-0 font-weight-lighter">{{ heroTime.hero }}</h5>
-      <span>
-        <b-badge class="w-50p">{{ (heroTime.time * 100).toFixed(2) }}</b-badge>
-      </span>
-    </div>
-    <b-progress class="mb-3 rounded-0" :max="1" height="14px">
-      <b-progress-bar :value="heroTime.time" :class="classHeroBg">{{
-        heroTime.hero
-      }}</b-progress-bar>
-    </b-progress>
-  </div>
+	<div class="progress-time-played">
+		<div class="d-flex justify-content-between">
+			<h5 class="mb-0 font-weight-lighter">{{ heroTime.hero }}</h5>
+			<span>
+				<b-badge class="w-50p">{{ (heroTime.time * 100).toFixed(2) }}</b-badge>
+			</span>
+		</div>
+		<b-progress class="mb-3 rounded-0" :max="1" height="14px">
+			<b-progress-bar
+				:value="heroTime.time"
+				:class="classHeroBg"
+			></b-progress-bar>
+		</b-progress>
+	</div>
 </template>
 
 <script>
-import { HeroData } from "@/utils/typeValidation";
+import { HeroData } from "@/utils/typeValidation"
 
 export default {
-  name: "TimePlayedHero",
+	name: "TimePlayedHero",
 
-  props: {
-    heroTime: {
-      type: HeroData,
-      required: true,
-    },
-  },
+	props: {
+		heroTime: {
+			type: HeroData,
+			required: true,
+		},
+	},
 
-  computed: {
-    classHeroBg() {
-      return `hero-bg-color-${this.heroTime.classSlug}`;
-    },
-  },
-};
+	computed: {
+		classHeroBg() {
+			return `hero-bg-color-${this.heroTime.classSlug}`
+		},
+	},
+}
 </script>
 
 <style lang="stylus">

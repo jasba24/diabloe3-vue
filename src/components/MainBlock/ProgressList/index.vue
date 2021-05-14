@@ -5,7 +5,7 @@
       <b-col
         v-for="(val, key) in sortedActs"
         :key="key"
-        class="col-12 col-md-12"
+        class="col-12 col-md-2"
       >
         <div class="bg-dark rounded mb-2">
           <progress-item :act="{ actNum: key, value: val }" />
