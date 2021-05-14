@@ -5,7 +5,7 @@
         <div class="hero-detail-avatar" :class="heroClass"></div>
       </div>
       <div class="text-center">
-        <h1 class="font-diablo text-truncate text-bone">{{ detail.name }}</h1>
+        <h1 v-diablo:bone class="text-truncate">{{ detail.name }}</h1>
 
         <div class="text-monospace">
           <small>
