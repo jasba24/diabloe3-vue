@@ -4,7 +4,7 @@
       <b-navbar toogleable="lg" type="dark" variant="dark">
         <b-navbar-brand :to="{ name: 'Home' }">
           <img src="@/assets/img/diablo-iii.svg" alt="D3" width="30" />
-          <span class="font-diablo ml-2">MYD3PF</span>
+          <span class="font-diablo ml-2">{{ title }}</span>
         </b-navbar-brand>
       </b-navbar>
     </div>
@@ -14,5 +14,11 @@
 <script>
 export default {
   name: "HeaderBar",
+
+  data() {
+    return {
+      title: process.env.VUE_APP_TITLE,
+    };
+  },
 };
 </script>
