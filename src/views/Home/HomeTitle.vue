@@ -14,6 +14,7 @@
       and select your region to see your profile
     </p>
     <hr class="mt-5" />
+    <p>Example <em>MADman#2102</em> region <em>EU</em></p>
   </div>
 </template>
 
